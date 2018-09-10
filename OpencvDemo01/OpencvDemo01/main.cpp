@@ -12,5 +12,13 @@ int main(int argc, char** argv) {
 	namedWindow("src", CV_WINDOW_AUTOSIZE);
 	imshow("src", mat);
 	waitKey(0);
+	std::string str = "./";
+	try {
+		imwrite(str + "lena-gray.jpg", mat);
+	}
+	catch (cv::Exception& ex) {
+		fprintf(stderr, "Exception : %s\n", ex.what());
+	}
+	
 	return 0;
 }
