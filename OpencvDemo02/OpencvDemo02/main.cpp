@@ -28,9 +28,11 @@ int main(int argc, char** argv) {
 		}
 	}*/
 
+	double t = getTickCount();
 	Mat kernel = (Mat_<char>(3, 3) << 0, -1, 0, -1, 5, -1, 0, -1, 0);
 	filter2D(src, dest, src.depth(), kernel);
-
+	double totalTime = (getTickCount() - t) / getTickFrequency();
+	printf("total time: %.2f\n", totalTime);
 	namedWindow("dest", CV_WINDOW_AUTOSIZE);
 	imshow("dest", dest);
 
