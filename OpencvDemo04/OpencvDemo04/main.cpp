@@ -41,17 +41,22 @@ int main(int argc, char** argv) {
 				int color = src.at<uchar>(row, col);
 				dest.at<uchar>(row, col) = 255 - color;
 			} else if (nc = 3) {
+				// Vec3b 对应三通道的Blue、Green、Red的uchar 类型数据
+				// Vec3f 对应三通道的float 类型数据
 				int b = src.at<Vec3b>(row, col)[0];
 				int g = src.at<Vec3b>(row, col)[1];
 				int r = src.at<Vec3b>(row, col)[2];
 				dest.at<Vec3b>(row, col)[0] = 255 - b;
-				dest.at<Vec3b>(row, col)[1] = 255 - g;
+				dest.at<Vec3b>(row, col)[1] = 0;
 				dest.at<Vec3b>(row, col)[2] = 255 - r;
 			}
 		}
 	}
 	namedWindow("three", CV_WINDOW_AUTOSIZE);
 	imshow("three", dest);
+	bitwise_not(src, dest);
+	namedWindow("bitwiseNot", CV_WINDOW_AUTOSIZE);
+	imshow("bitwiseNot", dest);
 	waitKey(0);
 	return 0;
 }
