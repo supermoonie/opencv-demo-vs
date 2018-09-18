@@ -10,6 +10,7 @@ int main(int argc, char** argv) {
 	if (!src.data) {
 		printf("could not load image...\n");
 	}
+	cvtColor(src, src, CV_BGR2GRAY);
 	namedWindow("src", CV_WINDOW_AUTOSIZE);
 	imshow("src", src);
 
