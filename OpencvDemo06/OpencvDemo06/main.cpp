@@ -17,7 +17,7 @@ int main(int argc, char** argv) {
 	int rows = src.rows;
 	int cols = src.cols;
 	int channels = src.channels();
-	float alpha = 1.3;
+	float alpha = 1.6;
 	float beta = 30;
 	for (int row = 0; row < rows; row++) {
 		for (int col = 0; col < cols; col++) {
