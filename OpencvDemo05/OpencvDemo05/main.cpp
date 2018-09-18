@@ -18,9 +18,15 @@ int main(int argc, char** argv) {
 
 	double alpha = 0.5;
 	if (linuxLogo.rows == windowsLogo.rows && linuxLogo.cols == windowsLogo.cols && linuxLogo.type() == windowsLogo.type()) {
-		addWeighted(linuxLogo, alpha, windowsLogo, 1 - alpha, 0.0, dest);
+		//addWeighted(linuxLogo, alpha, windowsLogo, 1 - alpha, 0.0, dest);
+		//add(linuxLogo, windowsLogo, dest, Mat());
+		multiply(linuxLogo, windowsLogo, dest);
 		namedWindow("dest", CV_WINDOW_AUTOSIZE);
 		imshow("dest", dest);
+	}
+	else {
+		printf("the size of images is not same....\n");
+		return -1;
 	}
 
 	waitKey(0);
